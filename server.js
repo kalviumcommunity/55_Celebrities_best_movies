@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const routes = require('./routes')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
@@ -26,6 +27,8 @@ const stop = async () => {
 app.get('/', (req, res) => {
   res.send(Status);
 });
+
+app.use('/',routes)
 
   app.listen(port, () => {
     start()
