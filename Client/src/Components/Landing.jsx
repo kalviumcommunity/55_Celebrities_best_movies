@@ -30,6 +30,14 @@ function Landing() {
         <h2 >Explore Celebrities and Their Top Movies.</h2>
         {/* Add more content here */}
       </div>
+      <div className='dummydata'>
+        <div>
+          <img src="./s-l1600.jpg" alt="" id='tom'/>
+          <p className='data' id='leg'>Movie:- Legend</p>
+          
+          <p className='data' id='imdb'>IMDb Rating:- 7.4</p>
+        </div>
+      </div>
     </div>
   );
 }
