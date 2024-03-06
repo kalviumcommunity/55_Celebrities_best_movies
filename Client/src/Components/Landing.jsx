@@ -1,9 +1,15 @@
 // Import necessary dependencies
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Landing.css'; // Importing your CSS file
 
 // Create a functional component for Landing
 function Landing() {
+  const [movies, setmovies] =useState([]);
+
+  useEffect(() => {
+    axios
+    
+  })
   return (
     <div>
       {/* Navbar */}
@@ -34,7 +40,6 @@ function Landing() {
         <div>
           <img src="./s-l1600.jpg" alt="" id='tom'/>
           <p className='data' id='leg'>Movie:- Legend</p>
-          
           <p className='data' id='imdb'>IMDb Rating:- 7.4</p>
         </div>
       </div>
