@@ -1,11 +1,11 @@
 const mongoose = require("mongoose")
 
-const schema = mongoose.Schema({
+const schema = new mongoose.Schema({
     
-celebrity_name : String,
-movie_name : String,
-imdb_rating: Number,
-img: String
+CelebritiesName : String,
+MoviesName : String,
+IMDbRating: Number,
+Image: String
 });
-const userModel =mongoose.model("CelebritiesBestMovies-Collection",schema)
+const userModel =mongoose.model("celebritiesmovies-collections",schema)
 module.exports = {userModel};
