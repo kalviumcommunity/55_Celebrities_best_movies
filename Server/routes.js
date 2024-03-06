@@ -7,8 +7,8 @@ router.use(express.json())
 
 router.get('/read', async (req, res) => {
     try {
-        const newData = await userModel.find().maxTimeMS(20000).exec(); // Retrieving all food combinations from the database
-        res.json(newData); // Sending the retrieved data as a JSON response
+        const newData = await userModel.find().maxTimeMS(20000).exec(); 
+        res.json(newData); 
     } catch (err) {
         console.error('Error in GET request:', err);
         res.status(500).json({ error: 'Internal Server Error' });
