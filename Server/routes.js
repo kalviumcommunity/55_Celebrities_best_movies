@@ -1,12 +1,19 @@
 const express = require('express')
 const router = express.Router()
-import { userModel } from './Schema'
+const {userModel} = require('./Schema')
 
 router.use(express.json())
 
-router.get('/get',(req,res)=>{
-    res.send('get request')
-})
+
+router.get('/read', async (req, res) => {
+    try {
+        const newData = await userModel.find().maxTimeMS(20000).exec(); 
+        res.json(newData); 
+    } catch (err) {
+        console.error('Error in GET request:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 router.post('/post',(req,res)=>{
     console.log(req.body)
@@ -21,11 +28,5 @@ router.delete('/delete',(req,res)=>{
     res.send("delete request")
 })
 
-router.post('/movies',async(req,res)=>{
-   try{
-    const newData = await userModel.find({})
-   }catch(err){
-        console.error(err)
-   }
-})
+
 module.exports = router
