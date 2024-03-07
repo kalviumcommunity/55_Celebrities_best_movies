@@ -8,7 +8,7 @@ function Landing() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/read");
+        const res = await axios.get("https://celebrities-best-movies.onrender.com/read");
         setMovies(res.data);
         console.log(res.data)
       } catch (err) {
