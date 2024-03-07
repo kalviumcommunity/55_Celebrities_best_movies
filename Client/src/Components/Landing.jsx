@@ -1,21 +1,28 @@
-// Import necessary dependencies
 import React, { useEffect, useState } from 'react';
-import './Landing.css'; // Importing your CSS file
+import './Landing.css';
+import axios from 'axios';
 
-// Create a functional component for Landing
 function Landing() {
-  const [movies, setmovies] =useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    axios
-    
-  })
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/read");
+        setMovies(res.data);
+        console.log(res.data)
+      } catch (err) {
+        console.error("Error fetching movies:", err);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
   return (
     <div>
-      {/* Navbar */}
       <nav className="navbar">
         <div className="container">
-
           <a href="/" className="logo">StarCinemaVault</a>
           <form className="search-form">
             <input type="text" placeholder="Search movies..." />
@@ -28,24 +35,23 @@ function Landing() {
         </div>
       </nav>
       <img src="./desktop-wallpaper-related-keywords-suggestions-for-movie-theater-backgrounds-1215x734-for-your-mobile-tablet-movie-screen.jpg" alt="" id='bg-img'/>
-
-      {/* Main content section */}
       <div className="main-content">
         <h1>Welcome to StarCinemaVault.</h1>
         <br />
-        <h2 >Explore Celebrities and Their Top Movies.</h2>
-        {/* Add more content here */}
+        <h2>Explore Celebrities and Their Top Movies.</h2>
       </div>
-      <div className='dummydata'>
-        <div>
-          <img src="./s-l1600.jpg" alt="" id='tom'/>
-          <p className='data' id='leg'>Movie:- Legend</p>
-          <p className='data' id='imdb'>IMDb Rating:- 7.4</p>
-        </div>
+      <div className='card'>
+        {movies.map(movie => (
+         <div key={movie.id}>
+          <img src={movie.Image}  id='celeb-img' key={movie.id}/>
+          <p className='data' id='celeb'>{movie.CelebritiesName}</p>
+          <p className='data' id='leg'>{movie.MoviesName}</p>
+          <p className='data' id='imdb'>IMDb Rating: {movie.IMDbRating}</p>
+        </div> 
+        ))}
       </div>
     </div>
   );
 }
 
-// Export the Landing component
 export default Landing;

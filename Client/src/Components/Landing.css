@@ -87,7 +87,7 @@
   .home{
     margin-right: 1vw;
   }
-  .dummydata{
+  .card{
     background-color: white;
     height: 55vh;
     width: 18vw;
@@ -97,7 +97,7 @@
     border: 8px solid #7b7a7a;
 
   }
-  .dummydata:hover{
+  .card:hover{
     transform: scale(1.1);
     transition: 0.5s;
   }
@@ -118,6 +118,10 @@
     margin-top: 1vh;
     font-size: larger;
     font-weight: bold;
+  }
+  #celeb-img{
+    height: 45vh;
+    width: 18vw;
   }
 
 

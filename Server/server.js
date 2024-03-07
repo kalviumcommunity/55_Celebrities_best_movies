@@ -4,8 +4,15 @@ const port = 3000;
 const routes = require('./routes')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 dotenv.config()
+
+const corsOrigin ={
+  origin:'http://localhost:5173', //or whatever port your frontend is using
+  credentials:true,            
+  optionSuccessStatus:200
+}
+app.use(cors(corsOrigin));
 
 let Status = 'disconnected';
 
