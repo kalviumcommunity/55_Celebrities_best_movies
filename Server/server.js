@@ -9,12 +9,8 @@ const { userModel } = require('./Schema');
  require('dotenv').config()
 
  
- const corsOptions ={
-     origin:'https://client-oat9qj8aj-ayush-tiwaris-projects-918925cc.vercel.app', 
-     credentials:true,            //access-control-allow-credentials:true
-     optionSuccessStatus:200
- }
- app.use(cors(corsOptions));
+ 
+ app.use(cors());
 
 let Status = 'disconnected';
 
