@@ -1,14 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const cors = require('cors')
 const {userModel} = require('./Schema')
 
-const corsOrigin ={
-    origin:'http://localhost:5173', //or whatever port your frontend is using
-    credentials:true,            
-    optionSuccessStatus:200
-}
-router.use(cors(corsOrigin));
+
 
 router.use(express.json())
 
