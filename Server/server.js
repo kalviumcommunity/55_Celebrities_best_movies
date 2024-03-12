@@ -4,11 +4,12 @@ const port = 3000;
 const routes = require('./routes')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
-const cors = require('cors')
+const cors = require('cors');
+const { userModel } = require('./Schema');
 dotenv.config()
 
 const corsOrigin ={
-  origin:'http://localhost:5177', //or whatever port your frontend is using
+  origin:'http://localhost:5173', //or whatever port your frontend is using
   credentials:true,            
   optionSuccessStatus:200
 }
@@ -31,8 +32,13 @@ const stop = async () => {
   Status = "closed"
 }
 
-app.get('/', (req, res) => {
-  res.send(Status);
+app.get("/test", async (req, res) => {
+  try {
+    let ans = await userModel.find({});
+    res.send(ans);
+  } catch (error) {
+    res.send("error");
+}
 });
 
 app.use('/',routes)
