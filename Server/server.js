@@ -10,7 +10,7 @@ const { userModel } = require('./Schema');
 
  
  const corsOptions ={
-     origin:'http://localhost:5173', 
+     origin:'https://client-oat9qj8aj-ayush-tiwaris-projects-918925cc.vercel.app', 
      credentials:true,            //access-control-allow-credentials:true
      optionSuccessStatus:200
  }
