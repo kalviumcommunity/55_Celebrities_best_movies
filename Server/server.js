@@ -10,7 +10,7 @@ const { userModel } = require('./Schema');
 
  
  const corsOptions ={
-     origin:'http://localhost:5174', 
+     origin:'http://localhost:5173', 
      credentials:true,            //access-control-allow-credentials:true
      optionSuccessStatus:200
  }
@@ -39,7 +39,7 @@ app.get("/test", async (req, res) => {
 }
 });
 
-app.use('/',routes)
+app.use(routes);
 
   app.listen(port, () => {
     start()

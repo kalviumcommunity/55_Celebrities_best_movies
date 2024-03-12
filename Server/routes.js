@@ -6,7 +6,7 @@ const {userModel} = require('./Schema')
 
 router.use(express.json())
 
-// app.use(cors())
+
 router.get('/read', async (req, res) => {
     try {
         const newData = await userModel.find().maxTimeMS(20000).exec(); 
