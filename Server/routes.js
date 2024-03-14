@@ -1,18 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const cors = require('cors')
 const {userModel} = require('./Schema')
 
-const corsOrigin ={
-    origin:'http://localhost:5173', //or whatever port your frontend is using
-    credentials:true,            
-    optionSuccessStatus:200
-}
-router.use(cors(corsOrigin));
 
 router.use(express.json())
 
-// app.use(cors())
+
 router.get('/read', async (req, res) => {
     try {
         const newData = await userModel.find().maxTimeMS(20000).exec(); 
@@ -36,5 +29,16 @@ router.delete('/delete',(req,res)=>{
     res.send("delete request")
 })
 
+router.post('/new', async (req, res) => {
+    try {
+        console.log(req.body)
+        const newData = await userModel.create(req.body);
+        console.log(newData)
+        res.send(newData);
+    } catch (error) {
+        console.error(error);
+        res.send('Error');
+    }
+});
 
 module.exports = router

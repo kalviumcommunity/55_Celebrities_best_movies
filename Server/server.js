@@ -6,14 +6,11 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const cors = require('cors');
 const { userModel } = require('./Schema');
-dotenv.config()
+ require('dotenv').config()
 
-const corsOrigin ={
-  origin:'http://localhost:5173', //or whatever port your frontend is using
-  credentials:true,            
-  optionSuccessStatus:200
-}
-app.use(cors(corsOrigin));
+ 
+ 
+ app.use(cors());
 
 let Status = 'disconnected';
 
@@ -27,10 +24,7 @@ const start = async () => {
   }
 };
 
-const stop = async () => {
-  await mongoose.disconnect();
-  Status = "closed"
-}
+
 
 app.get("/test", async (req, res) => {
   try {
@@ -41,7 +35,7 @@ app.get("/test", async (req, res) => {
 }
 });
 
-app.use('/',routes)
+app.use(routes);
 
   app.listen(port, () => {
     start()
