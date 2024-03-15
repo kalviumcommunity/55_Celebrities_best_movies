@@ -41,4 +41,41 @@ router.post('/new', async (req, res) => {
     }
 });
 
+
+router.get('/read/:id', async (req,res) => {
+    const _id = req.params.id
+    userModel.findById({_id})
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
+})
+
+router.put('/update/:id', async (req, res) => {
+    try {
+        const updatedData = await userModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updatedData) {
+            return res.status(404).json({ error: 'Data not found' });
+        }
+        console.log('Data updated:', updatedData);
+        res.status(200).json({ message: 'Data updated successfully', data: updatedData });
+    } catch (err) {
+        console.error('Error in PUT request:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const deletedData = await userModel.findByIdAndDelete(req.params.id); 
+        if (!deletedData) {
+            return res.status(404).json({ error: 'Data not found' });
+        }
+        console.log('Data deleted:', deletedData);
+        res.status(200).json({ message: 'Data deleted successfully' });
+    } catch (err) {
+        console.error('Error in DELETE request:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
 module.exports = router
