@@ -51,7 +51,7 @@ router.get('/read/:id', async (req,res) => {
 
 router.put('/update/:id', async (req, res) => {
     try {
-        const updatedData = await Model.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedData = await userModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedData) {
             return res.status(404).json({ error: 'Data not found' });
         }
@@ -65,7 +65,7 @@ router.put('/update/:id', async (req, res) => {
 
 router.delete('/delete/:id', async (req, res) => {
     try {
-        const deletedData = await Model.findByIdAndDelete(req.params.id); 
+        const deletedData = await userModel.findByIdAndDelete(req.params.id); 
         if (!deletedData) {
             return res.status(404).json({ error: 'Data not found' });
         }
