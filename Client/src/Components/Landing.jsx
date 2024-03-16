@@ -5,7 +5,7 @@
 
   function Landing() {
     const [movies, setMovies] = useState([]);
-    
+    const [error, setError] = useState(null);
   
 
       const fetchData = async () => {
@@ -21,6 +21,18 @@
       useEffect(() => {
         fetchData();
       }, []);
+
+      const deleteItem = async (id) => {
+        try {
+          await axios.delete(`https://celebrities-best-movies.onrender.com/delete/${id}`);
+          
+          // Update the state after deletion
+          setMovies(prevState => prevState.filter(item => item._id !== id));
+        } catch (error) {
+          console.error("Error deleting data:", error);
+          setError("Error deleting data. Please try again.");
+        }
+      };
 
     return (
       <div>
@@ -56,6 +68,13 @@
             <p className='data' id='celeb'>{movie.CelebritiesName}</p>
             <p className='data' id='leg'>{movie.MoviesName}</p>
             <p className='data' id='imdb'>IMDb Rating: {movie.IMDbRating}</p>
+            <div className="btns">
+                  {/* Pass food._id as id to deleteItem */}
+                  <Link to={`/update/${movie._id}`}>
+                    <button className='update'>Update</button>
+                  </Link>
+                  <button className='delete' onClick={() => deleteItem(movie._id)}>Delete</button>
+            </div>
           </div> 
           ))}
         </div>

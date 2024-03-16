@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Landing from './Components/Landing'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Form from './Form'
+import UpdateForm from "./UpdateForm"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <Routes>
     <Route path="/" element={<Landing/>}/>
       <Route path="/form" element={<Form/>}/>
+      <Route path="/update/:id" element={<UpdateForm/>}/>
     </Routes>
     
     </BrowserRouter>

@@ -109,7 +109,7 @@
   .box{
     
     background-color: white;
-    height: 49vh;
+    height: 55vh;
     width: 15vw;
     margin-left: 5vw;
     margin-top: 5vh;
@@ -142,6 +142,17 @@
   #celeb-img{
     height: 35vh;
     width: 15vw;
+  }
+  .delete{
+    margin-top: 2vh;
+    height: 4vh;
+    width: 5vw;
+  }
+  .update{
+    margin-left: 2vw;
+    margin-top: 2vh;
+    height: 4vh;
+    width: 5vw;
   }
 
 
