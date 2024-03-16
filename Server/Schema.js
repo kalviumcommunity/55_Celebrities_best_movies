@@ -7,5 +7,5 @@ MoviesName : String,
 IMDbRating: Number,
 Image: String
 });
-const userModel =mongoose.model("celebritiesmovies-collections",schema)
+const userModel =mongoose.model("celebritiesmovies-collection",schema)
 module.exports = {userModel};

@@ -49,12 +49,14 @@ router.get('/read/:id', async (req,res) => {
     .catch(err => console.log(err))
 })
 
-router.put('/update/:id', async (req, res) => {
+router.put('/update/:_id', async (req, res) => {
     try {
-        const updatedData = await userModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        if (!updatedData) {
-            return res.status(404).json({ error: 'Data not found' });
-        }
+        let id = req.params._id;
+        console.log(id,req.body)
+        let updatedData = await userModel.findByIdAndUpdate({_id:id},req.body,{new:true});
+        // if (!updatedData) {
+        //     return res.status(404).json({ error: 'Data not found' });
+        // }
         console.log('Data updated:', updatedData);
         res.status(200).json({ message: 'Data updated successfully', data: updatedData });
     } catch (err) {
