@@ -1,9 +1,25 @@
 const express = require('express')
 const router = express.Router()
 const {userModel} = require('./Schema')
+const Joi = require('joi');
 
 
 router.use(express.json())
+
+const newDataSchema = Joi.object({
+    CelebritiesName : Joi.string().required(),
+    MoviesName: Joi.string().required(),
+    IMDbRating: Joi.number().required(),
+    Image: Joi.string().required()
+});
+
+const updateDataSchema = Joi.object({
+    CelebritiesName : Joi.string(),
+    MoviesName: Joi.string(),
+    IMDbRating: Joi.number(),
+    Image: Joi.string()
+});
+
 
 
 router.get('/read', async (req, res) => {
@@ -31,6 +47,10 @@ router.delete('/delete',(req,res)=>{
 
 router.post('/new', async (req, res) => {
     try {
+        const { error } = newDataSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ error: error.details[0].message });
+        }
         console.log(req.body)
         const newData = await userModel.create(req.body);
         console.log(newData)
@@ -51,6 +71,10 @@ router.get('/read/:id', async (req,res) => {
 
 router.put('/update/:_id', async (req, res) => {
     try {
+        const { error } = updateDataSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ error: error.details[0].message });
+        }
         let id = req.params._id;
         console.log(id,req.body)
         let updatedData = await userModel.findByIdAndUpdate({_id:id},req.body,{new:true});
