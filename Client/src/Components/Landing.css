@@ -37,13 +37,14 @@
     padding: 8px 15px;
     color: white;
     border-radius: 4px;
+    margin-right: 2vw;
     }
     .signup{
       background-color: #4CAF50;
     padding: 8px 15px;
     color: white;
     border-radius: 4px;
-    margin-left: 2vw;
+    margin-right: 2vw;
     }
     .logout{
       background-color: #4CAF50;
@@ -51,7 +52,8 @@
       width: 5vw;
     color: white;
     border-radius: 4px;
-    margin-left: 10vw;
+    margin-right: 3vw;
+    
       
     }
     .search-form {
@@ -82,14 +84,18 @@
   .search-form button:hover {
     background-color: #45a049;
   }
+
+  .nav-btns{
+    display: flex;
+  }
   
   .f-btn{
     background-color: #4CAF50;
-    padding: 8px 15px;
+      height: 5vh;
+      width: 7vw;
     color: white;
     border-radius: 4px;
     margin-right: 2vw;
-    border: none;
 
   }
 
