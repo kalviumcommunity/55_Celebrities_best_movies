@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import './Signup.css'
 
 function Signup() {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ function Signup() {
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={handleSubmit}>
+      <img src="./desktop-wallpaper-related-keywords-suggestions-for-movie-theater-backgrounds-1215x734-for-your-mobile-tablet-movie-screen.jpg" alt="" id='bg-img' />
+      <form className="signupform" onSubmit={handleSubmit}>
         <label>Username:</label>
         <input 
           type="text" 
@@ -51,7 +53,7 @@ function Signup() {
         <br></br>
         {signupError && <p className="error">{signupError}</p>}
 
-        <button type="submit" className="button">SIGNUP</button>
+        <button type="submit" className="signup-btn">SIGNUP</button>
       </form>
     </div>
   );

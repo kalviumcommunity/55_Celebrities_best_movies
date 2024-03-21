@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import './Login.css'
 
 function Login() {
   const navigate = useNavigate();
@@ -54,7 +55,8 @@ function Login() {
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={handleSubmit}>
+      <img src="./desktop-wallpaper-related-keywords-suggestions-for-movie-theater-backgrounds-1215x734-for-your-mobile-tablet-movie-screen.jpg" alt="" id='bg-img' />
+      <form className="loginform" onSubmit={handleSubmit}>
         <label>Username:</label>
         <input 
           type="text" 
@@ -73,7 +75,7 @@ function Login() {
         {loginMessage && <div className="error-message">{loginMessage}</div>}
         <br></br>
 
-        <button type="submit" className="button">LOGIN</button>
+        <button type="submit" className="login-btn">LOGIN</button>
       </form>
     </div>
   );
