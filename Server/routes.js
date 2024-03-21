@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const {userModel} = require('./Schema')
 const Joi = require('joi');
+const { Model } = require('./UserSchema')
+
 
 
 router.use(express.json())
@@ -106,7 +108,7 @@ router.delete('/delete/:id', async (req, res) => {
 
 router.post('/Signup',async(req,res)=>{
     try{
-        const user = await userModel.create({
+        const user = await Model.create({
             username:req.body.username,
             password:req.body.password
         })
@@ -119,7 +121,7 @@ router.post('/Signup',async(req,res)=>{
 router.post('/Login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        const user = await userModel.findOne({ username, password });
+        const user = await Model.findOne({ username, password });
         
         if (!user) {
             return res.status(401).json({ error: 'Invalid username / password' });
