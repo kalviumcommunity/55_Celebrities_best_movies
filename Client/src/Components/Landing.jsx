@@ -1,7 +1,7 @@
   import React, { useEffect, useState } from 'react';
   import './Landing.css';
   import axios from 'axios';
-  import {Link} from 'react-router-dom'
+  import { Link } from 'react-router-dom'
 
   function Landing() {
     const [movies, setMovies] = useState([]);
@@ -44,8 +44,8 @@
               <button type="submit">Search</button>
             </form>
             <ul className="nav-links">
-              <li><a href="/" className='home'>Home</a></li>
-              <li><a href="/about">About</a></li>
+              <Link to="/Login"><button  className='login'>Login</button></Link>
+              <Link to="/Signup"><button href="/about">Signup</button></Link>
             </ul>
             <div className='form'>
           <Link to="/form">
