@@ -25,7 +25,7 @@ function Landing() {
   useEffect(() => {
     // Check login status
     const loginStatus = sessionStorage.getItem('login');
-    setIsLoggedIn(!!loginStatus);
+    setIsLoggedIn(loginStatus);
   }, []);
 
   const deleteItem = async (id) => {
@@ -52,10 +52,15 @@ function Landing() {
             <input type="text" placeholder="Search movies..." />
             <button type="submit">Search</button>
           </form>
-          <ul className="nav-links">
+          <ul className="nav-btns">
             {isLoggedIn ? (
               <>
                 <button className='logout' onClick={handleLogout}>Logout</button>
+                <div className='form'>
+                  <Link to="/form">
+                    <button className='f-btn'>Add Entity</button>
+                  </Link>
+                </div>
               </>
             ) : (
               <>
@@ -64,11 +69,7 @@ function Landing() {
               </>
             )}
           </ul>
-          <div className='form'>
-            <Link to="/form">
-              <button className='f-btn'>Add Entity</button>
-            </Link>
-          </div>
+      
         </div>
       </nav>
       <img src="./desktop-wallpaper-related-keywords-suggestions-for-movie-theater-backgrounds-1215x734-for-your-mobile-tablet-movie-screen.jpg" alt="" id='bg-img'/>
