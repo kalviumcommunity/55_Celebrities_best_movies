@@ -12,14 +12,16 @@ const newDataSchema = Joi.object({
     CelebritiesName : Joi.string().required(),
     MoviesName: Joi.string().required(),
     IMDbRating: Joi.number().required(),
-    Image: Joi.string().uri()
+    Image: Joi.string().uri(),
+    created_by: Joi.string()
 });
 
 const updateDataSchema = Joi.object({
     CelebritiesName : Joi.string().required(),
     MoviesName: Joi.string().required(),
     IMDbRating: Joi.number().required(),
-    Image: Joi.string().uri()
+    Image: Joi.string().uri(),
+    created_by: Joi.string()
 });
 
 
