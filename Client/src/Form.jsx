@@ -11,13 +11,14 @@ function Form() {
         MoviesName: "",
         IMDbRating: "",
         Image: "",
+        created_by: sessionStorage.getItem('username')
     });
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             let data = await axios.post("https://celebrities-best-movies.onrender.com/new", formData);
-            console.log(data)
+            console.log(formData)
             navigate('/')   
            
         } catch (error) {
