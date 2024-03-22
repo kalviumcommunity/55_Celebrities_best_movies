@@ -166,6 +166,14 @@
     height: 4vh;
     width: 5vw;
   }
+  .filter{
+    margin-top: 5vh;
+  }
+  #drop{
+    height: 4vh;
+    width: 10vw;
+    border-radius: 4px;
+  }
 
 
   

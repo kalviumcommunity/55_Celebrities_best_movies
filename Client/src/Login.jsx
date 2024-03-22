@@ -43,6 +43,7 @@ function Login() {
         setCookie('password', password, 365);
         sessionStorage.setItem('loginSuccess', 'Login successful');
         sessionStorage.setItem('login', true);
+        sessionStorage.setItem('username', username);
         navigate("/");
       } else {
         setLoginMessage('Invalid Credentials');
