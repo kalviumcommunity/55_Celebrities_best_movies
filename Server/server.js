@@ -4,8 +4,13 @@ const port = 3000;
 const routes = require('./routes')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
+const cors = require('cors');
+const { userModel } = require('./Schema');
+ require('dotenv').config()
 
-dotenv.config()
+ 
+ 
+ app.use(cors());
 
 let Status = 'disconnected';
 
@@ -19,16 +24,18 @@ const start = async () => {
   }
 };
 
-const stop = async () => {
-  await mongoose.disconnect();
-  Status = "closed"
-}
 
-app.get('/', (req, res) => {
-  res.send(Status);
+
+app.get("/test", async (req, res) => {
+  try {
+    let ans = await userModel.find({});
+    res.send(ans);
+  } catch (error) {
+    res.send("error");
+}
 });
 
-app.use('/',routes)
+app.use(routes);
 
   app.listen(port, () => {
     start()

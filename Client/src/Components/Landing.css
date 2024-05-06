@@ -1,82 +1,108 @@
-*{
-  margin: 0;
-  padding: 0;
-}
+  *{
+    margin: 0;
+    padding: 0;
+  }
 
-.navbar {
-  background-color: rgba(135, 134, 133, 0.4); 
-    color: #fff;
-    padding: 30px 0;
+  .navbar {
+    background-color: rgba(135, 134, 133, 0.1); 
+      color: #fff;
+      padding: 30px 0;
+      border-radius: 8px;
+      
+    }
     
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #bg-img {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place the background image behind other content */
   }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #bg-img {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Place the background image behind other content */
-}
-  
-  .logo {
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #fff;
-    margin-left: 2vw;
-    font-weight: bold;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 20px;
-  }
-  
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: larger;
-    font-weight: bold;
-  }
-  .search-form {
-    display: flex;
-    align-items: center; 
-    margin-left: 45vw;
-  }
-  
-  .search-form input[type="text"] {
-    padding: 8px;
-    width: 300px;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .search-form button {
-    padding: 8px 15px;
+    
+    .logo {
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #fff;
+      margin-left: 2vw;
+      font-weight: bold;
+    }   
+    .login {
     background-color: #4CAF50;
+    padding: 8px 15px;
     color: white;
-    border: none;
     border-radius: 4px;
-    cursor: pointer;
-  }
+    margin-right: 2vw;
+    }
+    .signup{
+      background-color: #4CAF50;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 4px;
+    margin-right: 2vw;
+    }
+    .logout{
+      background-color: #4CAF50;
+      height: 5vh;
+      width: 5vw;
+    color: white;
+    border-radius: 4px;
+    margin-right: 3vw;
+    
+      
+    }
+    .search-form {
+      display: block;
+      align-items: center;
+      margin-left: 30vw;
+      margin-top: 1vh;
+    }
+    
+    .search-form input[type="text"] {
+      padding: 8px;
+      width: 250px;
+      border: none;
+      border-radius: 4px;
+    }
+    
+    .search-form button {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+    
   
   .search-form button:hover {
     background-color: #45a049;
   }
+
+  .nav-btns{
+    display: flex;
+  }
   
+  .f-btn{
+    background-color: #4CAF50;
+      height: 5vh;
+      width: 7vw;
+    color: white;
+    border-radius: 4px;
+    margin-right: 2vw;
+
+  }
+
   /* Main content styles */
   .main-content {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 50px;
     color: white;
   }
   
@@ -86,5 +112,68 @@
   .home{
     margin-right: 1vw;
   }
+  .card{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 70px;
+   
+  }
+  .box{
+    
+    background-color: white;
+    height: 55vh;
+    width: 15vw;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    border-radius: 10px;
+    border: 8px solid #7b7a7a;
+
+  }
+  .box:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+  #tom{
+    height: 40vh;
+    width: 18vw;
+    
+  }
+  .data{
+    text-align: center;
+    font-weight: bold;
+
+  }
+  #leg{
+    font-size: 15px;
+  }
+  #imdb{
+    margin-top: 1vh;
+    font-size: larger;
+    font-weight: bold;
+  }
+  #celeb-img{
+    height: 35vh;
+    width: 15vw;
+  }
+  .delete{
+    margin-top: 2vh;
+    height: 4vh;
+    width: 5vw;
+  }
+  .update{
+    margin-left: 2vw;
+    margin-top: 2vh;
+    height: 4vh;
+    width: 5vw;
+  }
+  .filter{
+    margin-top: 5vh;
+  }
+  #drop{
+    height: 4vh;
+    width: 10vw;
+    border-radius: 4px;
+  }
+
 
   
